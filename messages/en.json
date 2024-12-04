@@ -1,0 +1,31 @@
+{
+    "HomePage": {
+      "welcome": "Welcome to my website !",
+      "next": "this site was made with NextJs, React, tailwind Redux and AntDesign !"
+    },
+    "NavBar": {
+        "home" :"Home",
+        "adminpages" : "Admin Pages",
+        "form" : "Form"
+    },
+    "Form": {
+        "firstname" :"Firstname",
+        "lastname" : "Lastname",
+        "phone" : "Phone",
+        "email" : "Email",
+        "adress" : "Adress",
+        "gender" : "Gender",
+        "nationality" : "Nationality",
+        "available" : "Available",
+        "selectgender" : "Select Gender",
+        "male" : "Male",
+        "female" : "Female",
+        "other" : "Other"
+    },
+    "Admin": {
+         "read" : "Read" 
+    },
+    "Id" : {
+         "details" : "Details of the Candidate"
+    }
+  }

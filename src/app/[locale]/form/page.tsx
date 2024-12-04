@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Candidate } from "../fakeData/candidate"; // Importez votre tableau de candidats
+import {useTranslations} from 'next-intl';
 
 const CandidateForm = () => {
   const [formData, setFormData] = useState({
@@ -11,10 +12,9 @@ const CandidateForm = () => {
     address: "",
     gender: "",
     nationality: "",
-    available: true,
+    available: true
   });
-
-  // Initialiser l'état des candidats avec les données importées
+  
   const [candidates, setCandidates] = useState(Candidate);
 
   // Gestion des changements dans le formulaire
@@ -52,15 +52,17 @@ const CandidateForm = () => {
 
     console.log("Nouveau candidat ajouté:", newCandidate);
   };
-
+  const t = useTranslations('Form');
+  const r = useTranslations('NavBar');
+  
   return (
     <div className="border-bla mx-auto mt-10 max-w-xl rounded-lg border-2 bg-white p-6 shadow-md">
-      <h2 className="mb-4 text-2xl font-semibold">Add a New Candidate</h2>
+      <h2 className="mb-4 text-2xl font-semibold">{r('form')}</h2>
       <form onSubmit={handleSubmit}>
         {/* Champ pour le prénom */}
         <div className="mb-4">
           <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">
-            First Name
+          {t('firstname')}
           </label>
           <input
             type="text"
@@ -69,7 +71,7 @@ const CandidateForm = () => {
             value={formData.firstname}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="First Name"
+            placeholder={t('firstname')}
             required
           />
         </div>
@@ -77,7 +79,7 @@ const CandidateForm = () => {
         {/* Champ pour le nom de famille */}
         <div className="mb-4">
           <label htmlFor="lastname" className="block text-sm font-medium text-gray-700">
-            Last Name
+          {t('lastname')}
           </label>
           <input
             type="text"
@@ -86,7 +88,7 @@ const CandidateForm = () => {
             value={formData.lastname}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Last Name"
+            placeholder= {t('lastname')}
             required
           />
         </div>
@@ -94,7 +96,7 @@ const CandidateForm = () => {
         {/* Champ pour le numéro de téléphone */}
         <div className="mb-4">
           <label htmlFor="number" className="block text-sm font-medium text-gray-700">
-            Phone Number
+          {t('phone')}
           </label>
           <input
             type="tel"
@@ -103,7 +105,7 @@ const CandidateForm = () => {
             value={formData.number}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Phone Number"
+            placeholder={t('phone')}
             required
           />
         </div>
@@ -111,7 +113,7 @@ const CandidateForm = () => {
         {/* Champ pour l'email */}
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email
+          {t('email')}
           </label>
           <input
             type="email"
@@ -120,7 +122,7 @@ const CandidateForm = () => {
             value={formData.email}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Email"
+            placeholder= {t('email')}
             required
           />
         </div>
@@ -128,7 +130,7 @@ const CandidateForm = () => {
         {/* Champ pour l'adresse */}
         <div className="mb-4">
           <label htmlFor="address" className="block text-sm font-medium text-gray-700">
-            Address
+          {t('adress')}
           </label>
           <input
             type="text"
@@ -137,7 +139,7 @@ const CandidateForm = () => {
             value={formData.address}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Address"
+            placeholder={t('adress')}
             required
           />
         </div>
@@ -145,7 +147,7 @@ const CandidateForm = () => {
         {/* Sélection du genre */}
         <div className="mb-4">
           <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
-            Gender
+          {t('adress')}
           </label>
           <select
             id="gender"
@@ -155,17 +157,17 @@ const CandidateForm = () => {
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
+            <option value="">{t('selectgender')}</option>
+            <option value="Male">{t('male')}</option>
+            <option value="Female">{t('female')}</option>
+            <option value="Other">{t('other')}</option>
           </select>
         </div>
 
         {/* Champ pour la nationalité */}
         <div className="mb-4">
           <label htmlFor="nationality" className="block text-sm font-medium text-gray-700">
-            Nationality
+          {t('nationality')}
           </label>
           <input
             type="text"
@@ -174,7 +176,7 @@ const CandidateForm = () => {
             value={formData.nationality}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Nationality"
+            placeholder={t('nationality')}
             required
           />
         </div>
@@ -182,7 +184,7 @@ const CandidateForm = () => {
         {/* Champ pour la disponibilité */}
         <div className="mb-4">
           <label htmlFor="available" className="block text-sm font-medium text-gray-700">
-            Available
+          {t('available')}
           </label>
           <input
             type="checkbox"
@@ -197,10 +199,10 @@ const CandidateForm = () => {
         </div>
 
         {/* Bouton de soumission */}
-        <div className="mt-6">
+        <div className="mt-6">  
           <button
             type="submit"
-            className="w-full rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-md bg-slate-800 px-4 py-2 font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Submit
           </button>

@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 import { Button } from "antd";
+import {Link} from '@/i18n/routing';
+import {useTranslations} from 'next-intl';
 
 const Navbar: React.FC = () => {
   const [isRecruteur, setIsRecruteur] = useState(false);
+  const t = useTranslations('NavBar');
+
   return (
     <nav className="flex items-center justify-between bg-slate-800 p-4 text-white">
       <Link href="/" className="flex items-center justify-center gap-8">
@@ -14,19 +17,19 @@ const Navbar: React.FC = () => {
       <ul className="m-0 flex list-none items-center justify-center gap-8 p-0">
         <li className="m-0">
           <Link href="/" className="home" aria-current="page">
-            Home
+          {t('home')}
           </Link>
         </li>
         {isRecruteur ? (
           <li className="m-0">
             <Link href="/admin" className="admin">
-              Admin Pages
+            {t('adminpages')}
             </Link>
           </li>
         ) : (
           <li className="m-0">
             <Link href="/form" className="">
-              Form
+              {t('form')}
             </Link>
           </li>
         )}

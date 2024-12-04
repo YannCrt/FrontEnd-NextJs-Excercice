@@ -1,21 +1,24 @@
-"use client";  
+"use client";
 
 import React, { useEffect } from "react";
-import { Candidate } from "../fakeData/candidate"; 
-import { Button } from "antd"; 
-import Link from "next/link"; 
-import { useDispatch, useSelector } from 'react-redux';
-import { setCandidateCount } from '../../store/slice';  
-import { RootState } from '../../store/store';  
-
+import { Candidate } from "../fakeData/candidate";
+import { Button } from "antd";
+import Link from "next/link"; // Utilisation de next/link standard
+import { useDispatch, useSelector } from "react-redux";
+import { setCandidateCount } from "../../../store/slice";
+import { RootState } from "../../../store/store";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl"; // Si tu veux récupérer la locale active
 
 const Admin = () => {
-  const dispatch = useDispatch(); 
-  const candidateCount = useSelector((state: RootState) => state.counter.candidateCount);  
-
+  const t = useTranslations("Admin");
+  const locale = useLocale();  // Récupérer la locale active, soit 'fr' ou 'en'
+  const dispatch = useDispatch();
+  const candidateCount = useSelector(
+    (state: RootState) => state.counter.candidateCount
+  );
 
   useEffect(() => {
-
     dispatch(setCandidateCount(Candidate.length));
   }, [dispatch]);
 
@@ -25,7 +28,7 @@ const Admin = () => {
         Liste des Candidats
       </h3>
 
-      <p className="text-lg font-medium text-gray-700">
+      <p className="text-lg font-medium text-gray-700 mb-4">
         Nombre total de candidats : {candidateCount}
       </p>
 
@@ -38,17 +41,17 @@ const Admin = () => {
             <span className="text-lg font-medium text-gray-700">
               {candidate.firstname} {candidate.lastname}
             </span>
-
-            <Link href={`/admin/${candidate.id}`} passHref>
+            
+            <Link href={`/${locale}/admin/${candidate.id}`} passHref>
               <Button className="!important rounded bg-slate-700 px-4 py-2 text-white hover:bg-slate-600">
-                Voir
+                {t("read")}
               </Button>
             </Link>
           </li>
         ))}
       </ul>
 
-      <div className="h-16"></div> 
+      <div className="h-16"></div>
     </div>
   );
 };

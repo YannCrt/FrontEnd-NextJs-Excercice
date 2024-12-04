@@ -1,0 +1,31 @@
+{
+    "HomePage": {
+      "welcome": "Bienvenue sur mon site web !",
+      "next": "Ce site à était fais avec NextJs, React, tailwind Redux et AntDesign !"
+    },
+    "NavBar": {
+        "home" :"Accueil",
+        "adminpages" : "Espaces Administrateur",
+        "form" : "Formulaire"
+    },
+    "Form": {
+        "firstname" :"Prénom",
+        "lastname" : "Nom",
+        "phone" : "Numéro de Téléphone",
+        "email" : "Email",
+        "adress" : "Adresse",
+        "gender" : "Genre",
+        "nationality" : "Nationalité",
+        "available" : "Disponible",
+        "selectgender" : "Selectionné un genre",
+        "male" : "Homme",
+        "female" : "Femme",
+        "other" : "Autres"
+    },
+    "Admin": {
+        "read" : "Voir"
+    },
+    "Id" : {
+         "details" : "Détails du Candidat"
+    }
+  }
