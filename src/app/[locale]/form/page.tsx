@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Candidate } from "../fakeData/candidate"; // Importez votre tableau de candidats
+import { Candidate } from "../fakeData/candidate"; 
 import {useTranslations} from 'next-intl';
 
 const CandidateForm = () => {
@@ -20,6 +20,7 @@ const CandidateForm = () => {
   // Gestion des changements dans le formulaire
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -35,7 +36,7 @@ const CandidateForm = () => {
       ...formData,
     };
 
-    // Ajouter le nouveau candidat au tableau de candidats
+    // Ajouter du nouveau candidat au tableau de candidats
     setCandidates([...candidates, newCandidate]);
 
     // Réinitialisation du formulaire après soumission
@@ -59,7 +60,6 @@ const CandidateForm = () => {
     <div className="border-bla mx-auto mt-10 max-w-xl rounded-lg border-2 bg-white p-6 shadow-md">
       <h2 className="mb-4 text-2xl font-semibold">{r('form')}</h2>
       <form onSubmit={handleSubmit}>
-        {/* Champ pour le prénom */}
         <div className="mb-4">
           <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">
           {t('firstname')}
@@ -76,7 +76,6 @@ const CandidateForm = () => {
           />
         </div>
 
-        {/* Champ pour le nom de famille */}
         <div className="mb-4">
           <label htmlFor="lastname" className="block text-sm font-medium text-gray-700">
           {t('lastname')}
@@ -93,7 +92,6 @@ const CandidateForm = () => {
           />
         </div>
 
-        {/* Champ pour le numéro de téléphone */}
         <div className="mb-4">
           <label htmlFor="number" className="block text-sm font-medium text-gray-700">
           {t('phone')}
@@ -110,7 +108,6 @@ const CandidateForm = () => {
           />
         </div>
 
-        {/* Champ pour l'email */}
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
           {t('email')}
@@ -127,7 +124,6 @@ const CandidateForm = () => {
           />
         </div>
 
-        {/* Champ pour l'adresse */}
         <div className="mb-4">
           <label htmlFor="address" className="block text-sm font-medium text-gray-700">
           {t('adress')}
@@ -144,7 +140,6 @@ const CandidateForm = () => {
           />
         </div>
 
-        {/* Sélection du genre */}
         <div className="mb-4">
           <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
           {t('adress')}
@@ -164,7 +159,6 @@ const CandidateForm = () => {
           </select>
         </div>
 
-        {/* Champ pour la nationalité */}
         <div className="mb-4">
           <label htmlFor="nationality" className="block text-sm font-medium text-gray-700">
           {t('nationality')}
@@ -181,7 +175,6 @@ const CandidateForm = () => {
           />
         </div>
 
-        {/* Champ pour la disponibilité */}
         <div className="mb-4">
           <label htmlFor="available" className="block text-sm font-medium text-gray-700">
           {t('available')}

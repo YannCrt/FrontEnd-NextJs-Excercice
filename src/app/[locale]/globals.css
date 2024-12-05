@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Personnalisation du bouton Ant Design */
-
 .ant-btn {
   background-color: #4b5563 !important;
   border-color: #4b5563 !important;
@@ -23,7 +21,11 @@
 * {
   font-family: "Nunito", sans-serif;
 }
-/* nav {
+
+/* 
+Ancien code css transformé par la suite en Tailwind.
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;

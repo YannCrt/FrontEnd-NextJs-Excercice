@@ -30,7 +30,7 @@ const CandidateDetails = ({ params }: CandidateDetailsProps) => {
   const t = useTranslations('Form');
   const r = useTranslations('Id');
   const router = useRouter();
-  const locale = useLocale(); // Récupérer la locale active (fr, en, etc.)
+  const locale = useLocale();
 
   return (
     <div className="bg-gray-100 flex flex-col items-center p-10">
