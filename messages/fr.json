@@ -20,7 +20,8 @@
         "selectgender" : "Selectionné un genre",
         "male" : "Homme",
         "female" : "Femme",
-        "other" : "Autres"
+        "other" : "Autres",
+        "submit" : "Envoyer"
     },
     "Admin": {
         "read" : "Voir"
