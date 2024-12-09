@@ -1,36 +1,45 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Candidate } from "../fakeData/candidate";
-import Link from "next/link"; // Utilisation de next/link standard
 import { useDispatch, useSelector } from "react-redux";
 import { setCandidateCount } from "../../../store/slice";
 import { RootState } from "../../../store/store";
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl"; // Si tu veux récupérer la locale active
 import CandidateForeach from "../UI/Components/Admin/CandidateForeach";
+import AdminId from "../UI/Components/Admin/id/AdminId";
 
 const Admin = () => {
+  const [selectedCandidateId, setSelectedCandidateId] = useState<number | null>(null);
   const dispatch = useDispatch();
   const candidateCount = useSelector(
     (state: RootState) => state.counter.candidateCount
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(setCandidateCount(Candidate.length));
   }, [dispatch]);
 
-  return (
-    <div className="ul-div">
-      <h3>
-        Liste des Candidats
-      </h3>
+  const handleViewCandidate = (id: number) => {
+    setSelectedCandidateId(id);
+  };
 
-      <p>
-        Nombre total de candidats : {candidateCount}
-      </p>
-      <CandidateForeach/>
-      <div></div>
+  const handleBackToList = () => {
+    setSelectedCandidateId(null);
+  };
+
+  return (
+    <div>
+      {selectedCandidateId === null ? (
+        <div className="ul-div">
+          <h3>Liste des Candidats</h3>
+          <p>Nombre total de candidats : {candidateCount}</p>
+          <CandidateForeach onViewCandidate={handleViewCandidate} />
+        </div>
+      ) : (
+        <div className="candidate-details">
+          <AdminId id={selectedCandidateId} onBack={handleBackToList} />
+        </div>
+      )}
     </div>
   );
 };

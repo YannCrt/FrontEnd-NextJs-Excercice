@@ -11,15 +11,15 @@ const FormLabel: React.FC<FormLabelProps> = ({name, type = "text" }) => {
   const t = useTranslations('Form');
 
     return (
-      <div className="mb-4">
-        <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+      <div className="label-div mb-4">
+        <label htmlFor={name}>
           {t(name)}
         </label>
         <input
           type={type}
           id={t(name)}
           name={t(name)}
-          className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className=""
           placeholder={t(name)}
           required
         />

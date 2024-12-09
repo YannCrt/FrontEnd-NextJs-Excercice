@@ -4,7 +4,11 @@ import React from 'react'
 import Link from 'next/link';
 import { Button } from 'antd';
 
-function CandidateForeach() {
+type CandidateForeachProps = {
+  onViewCandidate: (id: number) => void;
+};
+
+function CandidateForeach({onViewCandidate}: CandidateForeachProps) {
   const t = useTranslations("Admin");
   const locale = useLocale();
   return (
@@ -16,11 +20,12 @@ function CandidateForeach() {
           {candidate.firstname} {candidate.lastname}
         </span>
         
-        <Link href={`/${locale}/admin/${candidate.id}`} passHref>
-          <Button className="Button-Admin">
+        <Button
+            className="Button-Admin"
+            onClick={() => onViewCandidate(candidate.id)}
+          >
             {t("read")}
           </Button>
-        </Link>
       </li>
     ))}
   </ul>

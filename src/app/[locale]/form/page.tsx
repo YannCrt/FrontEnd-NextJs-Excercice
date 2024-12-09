@@ -10,7 +10,7 @@ import FormSubmit from "../UI/Components/Form/FormSubmit";
 
 const CandidateForm = () => {
   return (
-    <div className="border-bla mx-auto mt-10 max-w-xl rounded-lg border-2 bg-white p-6 shadow-md">
+    <div className="form-div">
       <TitleForm name="form" />
       <form>
       <FormLabel name="firstname"/>
