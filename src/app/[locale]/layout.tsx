@@ -4,25 +4,25 @@ import './globals.css';
 import { StoreProvider } from "../../store/StoreProvider";
 import { store } from "../../store/store";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+interface LocaleLayoutProps {
+  children: ReactNode;
+  params: { locale: string };
 }
 
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
-}>) {
+
+export default async function LocaleLayout({children, params: {locale}} : LocaleLayoutProps) {
+  // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
  
+  // Enable static rendering
+  setRequestLocale(locale);
+  
   const messages = await getMessages();
  
   return (
