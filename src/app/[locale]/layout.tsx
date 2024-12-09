@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from "react";
-import Navbar from './components/navbar/page';
+import Navbar from './UI/Components/Navbar/navbar';
 import './globals.css'; 
 import { StoreProvider } from "../../store/StoreProvider";
 import { store } from "../../store/store";

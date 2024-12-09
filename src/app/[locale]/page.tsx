@@ -8,12 +8,12 @@ export default function Home() {
   const t = useTranslations('HomePage');
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white bg-gradient-to-r">
-      <div className="max-w-xl rounded-lg border-2 border-black bg-white p-6 text-center shadow-lg">
-        <h1 className="mb-4 text-5xl font-bold text-gray-800">
+    <div className="home">
+      <div className="">
+        <h1 className="">
           {t("welcome")} 
         </h1>
-        <p className="mb-6 text-xl text-gray-600">
+        <p className="">
         {t('next')}
         </p>
       </div>
